@@ -1,0 +1,52 @@
+ ███▄ ▄███▓ ▄▄▄       ██▓     ▒█████ ▓██   ██▓ ▄▄▄
+▓██▒▀█▀ ██▒▒████▄    ▓██▒    ▒██▒  ██▒▒██  ██▒▒████▄
+▓██    ▓██░▒██  ▀█▄  ▒██░    ▒██░  ██▒ ▒██ ██░▒██  ▀█▄
+▒██    ▒██ ░██▄▄▄▄██ ▒██░    ▒██   ██░ ░ ▐██▓░░██▄▄▄▄██
+▒██▒   ░██▒ ▓█   ▓██▒░██████▒░ ████▓▒░ ░ ██▒▓░ ▓█   ▓██▒
+░ ▒░   ░  ░ ▒▒   ▓▒█░░ ▒░▓  ░░ ▒░▒░▒░   ██▒▒▒  ▒▒   ▓▒█░
+░  ░      ░  ▒   ▒▒ ░░ ░ ▒  ░  ░ ▒ ▒░ ▓██ ░▒░   ▒   ▒▒ ░
+░      ░     ░   ▒     ░ ░   ░ ░ ░ ▒  ▒ ▒ ░░    ░   ▒
+       ░         ░  ░    ░  ░    ░ ░  ░ ░           ░  ░
+                                      ░ ░
+setcps 0.8
+RTHM 1
+
+d1 $ every 5 (fast 5) $ stack[
+  s "hh*6" ,
+  s "bd bd",
+  s "~ [~ snare ~]"
+]
+
+hush
+RTHM 2
+
+d1 $ every 2 (palindrome) $ jux rev $ slow 2 $ stack[
+  s "hh*12",
+  s "snare(5,12)",
+ s "[snare ~ snare] [~ snare ~] [~ snare ~] snare" ,
+  s "bd*4"
+]
+
+d1 silence
+
+d2 $ every 4 (striate 256 ) $ jux rev $ s "jungbass*2" #room 0.8 #sz (sine+0.2)
+
+
+interpolate 1$ slow 2 $ stack[
+  s "hh*12",
+  --s "snare(5,12)",
+  s "[snare ~ snare] [~ snare ~] [~ snare ~] snare" ,
+  s "bd*4"
+] #gain 0.8
+
+ hush
+
+d1 $ slow 2 $  n (off 0.25 (+12) $ off 0.125 (+7) $ slow 2 "e(3,8) e(3,8,2) e(3,8) e(3,8,4)")
+  # sound "superpiano" #gain 0.95
+
+interpolate 1 $ slow 2 $
+  n (off 0.25 (+12) $ off 0.125 (+7) $ slow 2 "c(3,8) a(3,8,2) f(3,8) e(3,8,4)")
+  # sound "supersaw" #gain 0.6 #leslie 0.8 #crush 2 #fshift 0.2
+
+
+d2 $ s "bd*4" #room 0.9 #gain 0.95

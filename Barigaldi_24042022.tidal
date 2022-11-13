@@ -1,0 +1,101 @@
+
+
+d1 silence
+
+hush
+
+--quitteur
+
+xfade 2 $ s "~ bd"
+
+xfade 1 $  s "hh*8" #enhance 1
+
+d4 $ s"hh(5,4)"
+
+setcps 0.56
+
+
+
+hush
+
+--tututtut
+
+d2 $ slow 2 $ s"wobble(13,8)"   --slow _
+#room 0.8 #sz (slow 4 $ sine)
+#speed (irand 4)+2
+-- #speed "4 5 6 7 8 9"
+  #speed "4"              --enlever
+
+hush
+
+--kick
+
+d4 $ sometimes (striate 148)
+$ s "bd(3,8)" |+ n"<1 5 4*8 >"
+
+d4 silence
+
+hush
+
+d1 $ striate (12) $ s "son:2"
+#pan (slow 4 $ sine)
+#room 0.8
+#sz (slow 2 $ sine+0.5)
+
+d2 $ slow 0.2 $    -- reduire le slow -- 8 --2 --1  --0.5 --0.2
+almostAlways (#comb (slow 7 $ tri))
+$ whenmod 12 8 (#squiz 10)
+$ s "protokick(5,3)"
+#gain 1.5 #room 0.3 #sz 0.8
+
+
+
+--gliitchi
+
+d1 silence
+
+d6 $ n (scale "ahirbhairav" "0 .. 7") #speed 0.5  # s"[arpy(12,8), bd*2 ~ sn] "
+ #n (irand 8)
+ #gl_drywet 1
+#gl_recstart 1
+#gl_rvecho 2
+#gl_coefal ((slow 2 $ saw*10))
+#sustain 8
+
+d6 silence
+
+d7 $ almostAlways (#speed 0.9)
+$ sometimes (# s "son:3") $ s "son:2(5,4)"
+ #gl_drywet 1
+#gl_recstart 1
+#gl_rvecho 2
+#gl_coefal ((slow 2 $ saw*20))
+#sustain 8
+
+hush
+
+
+
+hush
+-- DOIT
+
+d6 $ slow 4
+$ s "son:1"
+#squiz 1
+#gain 1
+
+d6 silence
+
+hush
+
+--tekno?
+
+d2 $ s"protokick*4"
+ -- #squiz 2
+  #squiz "<1 3 5 7 9>"
+
+d3 $ s"~ hh"
+        #squiz 8
+#gain 1.5 #pan (slow 4 $ sine+0.5)
+
+d2 silence
